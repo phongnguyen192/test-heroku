@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\phong\\Source\\NRAEF.WebAPI\\logs\\.253ae890cef4fcf1454a87e049b1a5b9be916304-audit.json",
+    "files": [
+        {
+            "date": 1558414441016,
+            "name": "C:\\Users\\phong\\Source\\NRAEF.WebAPI\\logs\\application-2019-05-21-11-error.log",
+            "hash": "a4536f5a178b7e7540eb62cfde2b8ba3"
+        }
+    ]
+}

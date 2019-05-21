@@ -1,0 +1,19 @@
+{
+    "development": {
+      "username": "niftit",
+      "password": "Micr0s0ft@)!*",
+      "database": "NRAEF",
+      "host":"niftit.database.windows.net",
+      "secretKey": "51AD9E638HC91D98A88CA35D66CBA",
+      "cgiUrl":"https://stagingsso.restaurant.org/api/"
+    },
+    "production": {
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host":"niftit.database.windows.net",
+      "secretKey": "51AD9E638HC91D98A88CA35D66CBA",
+      "cgiUrl":"https://stagingsso.restaurant.org/api/"
+    }
+}
+  
