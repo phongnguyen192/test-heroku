@@ -1,35 +1,29 @@
 'use strict';
 module.exports = function(sequelize, Sequelize) {
-    const School = sequelize.define('School', {
-        School_Id: {
+    const Season = sequelize.define('Survey_Period', {
+        Survey_Period_Id: {
             primaryKey: true,
             autoIncrement: true,
             type: Sequelize.INTEGER
         },
-        CR_Company_Id: {
-            type: Sequelize.INTEGER,
+        Season_Cd: {
+            type: Sequelize.STRING,
+            validate: { len: [0,10] }
+        },
+        Season_Nm: {
+            type: Sequelize.STRING,
             allowNull: false,
             notEmpty: true
         },
-        Status_Lkp_Type_Id: {
-            type: Sequelize.INTEGER,
-        },
-        School_Type_Lkp_Type_Id: {
-            type: Sequelize.INTEGER,
-        },
-        School_Type_Other_Nm: {
-            type: Sequelize.STRING,
-        },
-        District_Nm: {
-            type: Sequelize.STRING,
-        },
-        Setting_Lkp_Type_Id: {
-            type: Sequelize.INTEGER,
+        Start_Dr: {
+            type: Sequelize.DATE,
+            allowNull: false,
             notEmpty: true
         },
-        NCESID_Cd: {
-            type: Sequelize.STRING,
-            validate: { len: [0,20] }
+        End_Dt: {
+            type: Sequelize.DATE,
+            allowNull: false,
+            notEmpty: true
         },
         Created_By_Nm: {
             type: Sequelize.STRING,
@@ -48,6 +42,6 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: true,
         },
     });
-    
-    return School;
+
+    return Season;
  }

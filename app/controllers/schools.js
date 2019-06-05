@@ -5,16 +5,11 @@ const { State, School, Person, Program, ProgramPerson } = require('../../sequeli
 
 // RETURNS ALL THE SCHOOLS IN THE STATES
 router.get('/', (req, res, next) => {
-    State.findAll({
+    School.findAll({
         attributes: ['State_Nm', 'State_Cd'],
         order: [
             ['State_Nm', 'ASC'],
-        ],
-        include: [{
-            model: School,
-            // attributes: ['First_Nm', 'Last_Nm', 'Addr_City_Nm', 'Email_Txt'],
-            // required: true
-        }]
+        ]
     })
         .then((result) => res.status(200).send(result))
         .catch(next);
@@ -35,14 +30,8 @@ router.post('/', (req, res, next) => {
     const data = req.body;
     School.create(
         {
-            State_Cd: data.State_Cd,
+            CR_Company_Id: data.CR_Company_Id,
             Status_Lkp_Type_Id: data.Status_Lkp_Type_Id,
-            Addr_City_Nm: data.Addr_City_Nm,
-            Addr_Street_Ln1: data.Addr_Street_Ln1,
-            Addr_Street_Ln2: data.Addr_Street_Ln2,
-            Addr_State_Cd: data.Addr_State_Cd,
-            Addr_Postal_Cd: data.Addr_Postal_Cd,
-            Addr_Postal4_Cd: data.Addr_Postal4_Cd,
             School_Type_Lkp_Type_Id: data.School_Type_Lkp_Type_Id,
             School_Type_Other_Nm: data.School_Type_Other_Nm,
             District_Nm: data.District_Nm,
@@ -62,12 +51,6 @@ router.put('/:id', (req, res, next) => {
         {
             State_Cd: data.State_Cd,
             Status_Lkp_Type_Id: data.Status_Lkp_Type_Id,
-            Addr_City_Nm: data.Addr_City_Nm,
-            Addr_Street_Ln1: data.Addr_Street_Ln1,
-            Addr_Street_Ln2: data.Addr_Street_Ln2,
-            Addr_State_Cd: data.Addr_State_Cd,
-            Addr_Postal_Cd: data.Addr_Postal_Cd,
-            Addr_Postal4_Cd: data.Addr_Postal4_Cd,
             School_Type_Lkp_Type_Id: data.School_Type_Lkp_Type_Id,
             School_Type_Other_Nm: data.School_Type_Other_Nm,
             District_Nm: data.District_Nm,

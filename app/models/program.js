@@ -10,7 +10,7 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.INTEGER,
             notEmpty: true
         },
-        Season_Id: {
+        Survey_Period_Id: {
             type: Sequelize.INTEGER,
             notEmpty: true
         },
@@ -23,7 +23,7 @@ module.exports = function(sequelize, Sequelize) {
         Student_Level1_Qty: {
             type: Sequelize.INTEGER,
         },
-        Student_Leve2_Qty: {
+        Student_Level2_Qty: {
             type: Sequelize.INTEGER,
         },
         Student_Expected_Completion_Qty: {
@@ -55,6 +55,9 @@ module.exports = function(sequelize, Sequelize) {
         },
         High_School_Qty: {
             type: Sequelize.INTEGER,
+        },
+        Multi_High_School_Yn:{
+            type: Sequelize.BOOLEAN,
         },
         Title1_Funding_Yn: {
             type: Sequelize.BOOLEAN,

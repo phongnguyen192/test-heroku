@@ -1,13 +1,10 @@
 'use strict';
 const Sequelize = require('sequelize');
-const OperatorsAliases  = Sequelize.Op;
-const PersonModel = require('./app/models/person');
-const StateModel = require('./app/models/state');
-const SchoolModel = require('./app/models/school');
-const SeasonModel = require('./app/models/season');
-const ProgramModel = require('./app/models/program');
-const ProgramPersonModel = require('./app/models/program-person');
-const ProgramMAModel = require('./app/models/program-multibit-answers');
+const OperatorsAliases = Sequelize.Op;
+const { SurveyPeriodModel, SchoolModel,
+    LookupTypeModel, PersonModel,
+    ProgramMAModel, ProgramModel,
+    ProgramPersonModel } = require('./app/models');
 
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config.json')[env];
@@ -33,72 +30,72 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
     }
 });
 
-
-const State = StateModel(sequelize, Sequelize);
 const Person = PersonModel(sequelize, Sequelize);
 const School = SchoolModel(sequelize, Sequelize);
-const Season = SeasonModel(sequelize, Sequelize);
 const Program = ProgramModel(sequelize, Sequelize);
 const ProgramMA = ProgramMAModel(sequelize, Sequelize);
 const ProgramPerson = ProgramPersonModel(sequelize, Sequelize);
+const SurveyPeriod = SurveyPeriodModel(sequelize, Sequelize);
+const LookupType = LookupTypeModel(sequelize, Sequelize);
 
-
-
-State.hasOne(Person, {
-    foreignKey: 'Person_Id',
-    sourceKey: 'Coordinator_Person_Id'
+SurveyPeriod.hasMany(Program, {
+    foreignKey: 'Survey_Period_Id'
 });
 
-State.belongsTo(Person, {
-    foreignKey: 'Coordinator_Person_Id'
-});
-
-State.hasMany(School, {
-    foreignKey: 'State_Cd'
-});
-
-Season.hasMany(Program, {
-    foreignKey: 'Season_Id'
-});
+Program.belongsTo(SurveyPeriod, {
+    foreignKey: 'Survey_Period_Id'
+})
 
 School.hasMany(Program, {
     foreignKey: 'School_Id'
 });
 
-Person.belongsToMany(Program, {
-    through: {model:ProgramPerson,unique: false},
-    foreignKey: 'Person_Id',
-    otherKey: 'Person_Id'
-  });
+School.belongsTo(LookupType, {
+    foreignKey: 'School_Type_Lkp_Type_Id'
+})
 
+Program.belongsTo(School, {
+    foreignKey: 'School_Id'
+})
+
+Program.belongsTo(Person, {
+    foreignKey: 'Principal_Person_Id'
+});
+
+Program.belongsTo(Person, {
+    foreignKey: 'Superintendent_Person_Id'
+});
 
 Program.belongsToMany(Person, {
-    through: {model:ProgramPerson,unique: false} ,
-    foreignKey: 'Program_Id',
-    otherKey: 'Program_Id'
-  });
-
-Program.hasMany(ProgramPerson,{
+    through: { model: ProgramPerson, unique: false },
     foreignKey: 'Program_Id',
 });
 
-
-ProgramPerson.belongsTo(Program,{
-    foreignKey:'Program_Id'
+Person.belongsToMany(Program, {
+    through: { model: ProgramPerson, unique: false },
+    foreignKey: 'Person_Id',
 });
 
-ProgramPerson.belongsTo(Person,{
-    foreignKey:'Person_Id'
+Program.belongsToMany(LookupType, {
+    through: { model: ProgramMA, unique: false },
+    foreignKey: 'Program_Id',
 });
+
+LookupType.belongsToMany(Program, {
+    through: { model: ProgramMA, unique: false },
+    foreignKey: 'Lkp_Type_Id',
+});
+
 
 
 module.exports = {
     Person,
-    State,
-    Season,
     School,
     Program,
     ProgramMA,
     ProgramPerson,
+    SurveyPeriod,
+    LookupType,
+    Sequelize,
     OperatorsAliases
 }

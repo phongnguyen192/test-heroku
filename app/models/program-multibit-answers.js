@@ -16,7 +16,6 @@ module.exports = function(sequelize, Sequelize) {
         },
         Answer_Yn: {
             type: Sequelize.BOOLEAN,
-            notEmpty: true
         },
     });
  

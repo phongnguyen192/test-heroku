@@ -28,7 +28,7 @@ router.get('/', (req, res, next) => {
                 "FirstName": "Test1000",
                 "LastName": "TestL100",
                 "Email": "devtest@restaurant.org",
-                "ExtendedAttributesJson": "{\"ProStartRoles\":\"FE\"}"
+                "ExtendedAttributesJson": "{\"ProStartRoles\":\"EF\"}"
             }
         };
     }
@@ -59,8 +59,13 @@ router.get('/', (req, res, next) => {
         .catch((error) => {
             res.status(500).json({ Error: error });
         })
-  });
-  
+});
+
+// router.get('/role', role('ADMIN'), (req, res, next) => {
+    
+//     res.status(200).send({ status: "success" });
+// });
+
 
 
 module.exports = router;

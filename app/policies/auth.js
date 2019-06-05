@@ -5,20 +5,21 @@ const cache = require('../middleware/cache');
 const env = process.env.NODE_ENV || 'development';
 const config = require('../../config/config.json')[env];
 
-function generateToken (user){
+function generateToken(user) {
     const userInfo = {
-        id:'123'+ user.LastName,
+        id: '123' + user.LastName,
         firstName: user.FirstName,
         lastName: user.LastName,
         email: user.Email,
-        roles: user.ExtendedAttributesJson 
+        roles: user.ExtendedAttributesJson
     };
     const token = jwt.sign(userInfo, config.secretKey, { expiresIn: '1h' });
     return token;
 }
 
 module.exports = {
-    authorize: (req, res, next) => {
+
+    validateToken: (req, res, next) => {
         if (req.path == '/authenticate' || req.path == '/token') {
             return next();
         }
@@ -30,14 +31,14 @@ module.exports = {
             jwt.verify(token, config.secretKey, function (err, decoded) {
                 if (err)
                     return res.status(500).send({ Error: err });
-                // req.userId = decoded.id;
-                
+                req.currentUser = decoded;
                 const result = cache.get(decoded.lastName);
-                console.log(result);
+                if (!result)
+                    return res.status(401).json({ Error: 'The access token provided is expired' });
                 next();
             });
         } else {
-            res.status(401).json({ message: 'Invalid Token' });
+            res.status(401).json({ Error: 'Invalid Token' });
         }
     },
 
@@ -63,6 +64,5 @@ module.exports = {
                 res.status(500).json({ Error: error });
             })
     },
-
 
 };

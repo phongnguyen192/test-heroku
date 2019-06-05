@@ -18,6 +18,9 @@ module.exports = function(sequelize, Sequelize) {
             notEmpty: true,
             allowNull: false,
         },
+        Prefix_Cd: {
+            type: Sequelize.STRING(10),
+        },
         Addr_Street_Ln1: {
             type: Sequelize.STRING,
         },
@@ -32,11 +35,11 @@ module.exports = function(sequelize, Sequelize) {
             validate: { len: [0,2] }
         },
         Addr_Postal_Cd: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(5),
             validate: { len: [0,5] }
         },
         Addr_Postal4_Cd: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(4),
             validate: { len: [0,4] }
         },
         Email_Txt: {
@@ -46,27 +49,27 @@ module.exports = function(sequelize, Sequelize) {
             }
         },
         Work_Phone_Area_Cd: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(3),
             validate: { len: [0,3] }
         },
         Work_Phone_Exchange_Cd: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(3),
             validate: { len: [0,3] }
         },
         Work_Phone_Local_Cd: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(4),
             validate: { len: [0,4] }
         },
         Cell_Phone_Area_Cd: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(3),
             validate: { len: [0,3] }
         },
         Cell_Phone_Exchange_Cd: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(3),
             validate: { len: [0,3] }
         },
         Cell_Phone_Local_Cd: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(3),
             validate: { len: [0,4] }
         },
         Created_By_Nm: {

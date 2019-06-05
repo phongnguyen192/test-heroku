@@ -2,7 +2,7 @@
 const NodeCache = require('node-cache')
 
 // stdTTL: time to live in seconds for every generated cache element.
-const cache = new NodeCache({ stdTTL: 5 * 60 })
+const cache = new NodeCache({ stdTTL: 60 * 60 })
 
 function set(key, value) {
   cache.set(key, value)
