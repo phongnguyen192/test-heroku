@@ -8,16 +8,15 @@ const fs = require("fs");
 
 const authorization = require('./app/policies/auth');
 
-const winston = require("./config/winston-config-rotate");
-const logDirectory = path.join(__dirname, "logs");
+//const logDirectory = path.join(__dirname, "logs");
 
 const app = express();
 
 // ENSURE LOG DIRECTORY EXISTS
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+//fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 
 //SETUP THE WINSTON STREAM
-app.use(morgan("combined", { stream: winston.stream }));
+//app.use(morgan("combined", { stream: winston.stream }));
 
 //INJECT CONTROLLERS
 const {
@@ -67,7 +66,7 @@ app.use((req, res, next) => {
 //ALL OTHER REQUESTS ARE NOT IMPLEMENTED.
 app.use((err, req, res, next) => {
     // error level logging
-    winston.error(winston.combinedFormat(err, req, res));
+    //winston.error(winston.combinedFormat(err, req, res));
     res.status(err.status || 501);
     res.json({
         Error: {
