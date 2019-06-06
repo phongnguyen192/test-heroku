@@ -27,7 +27,8 @@
     "sequelize": "^5.8.7",
     "tedious": "^6.1.2",
     "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^3.9.0"
+    "winston-daily-rotate-file": "^3.9.0",
+	"nodemon": "^1.19.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
