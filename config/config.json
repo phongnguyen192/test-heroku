@@ -1,18 +1,18 @@
 {
-    "development": {
-      "username": "shaggyrogers",
-      "password": "OMcOpAxPzL81z6y@!",
-      "database": "prostartdb",
-      "host":"prostartsql.database.windows.net",
-      "secretKey": "51AD9E638HC91D98A88CA35D66CBA",
-      "cgiUrl":"https://stagingsso.restaurant.org/api/"
-    },
-    "production": {
-      "username": "root",
-      "database": "prostartdb",
-      "host":"prostartsql.database.windows.net",
-      "secretKey": "51AD9E638HC91D98A88CA35D66CBA",
-      "cgiUrl":"https://stagingsso.restaurant.org/api/"
-    }
+	"development": {
+		"username": "shaggyrogers",
+		"password": "OMcOpAxPzL81z6y@!",
+		"database": "prostartdb",
+		"host": "prostartsql.database.windows.net",
+		"secretKey": "51AD9E638HC91D98A88CA35D66CBA",
+		"cgiUrl": "https://stagingsso.restaurant.org/api/"
+	},
+	"production": {
+		"username": "shaggyrogers",
+		"password": "OMcOpAxPzL81z6y@!",
+		"database": "prostartdb",
+		"host": "prostartsql.database.windows.net",
+		"secretKey": "51AD9E638HC91D98A88CA35D66CBA",
+		"cgiUrl": "https://stagingsso.restaurant.org/api/"
+	}
 }
-  

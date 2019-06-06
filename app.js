@@ -8,6 +8,7 @@ const fs = require("fs");
 
 const authorization = require('./app/policies/auth');
 
+//const winston = require("./config/winston-config-rotate");
 //const logDirectory = path.join(__dirname, "logs");
 
 const app = express();
