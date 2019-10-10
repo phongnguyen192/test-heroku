@@ -26,6 +26,15 @@
       "reminders_sent": 0,
       "created_at": "2019-10-10T07:18:02.792Z",
       "updated_at": null
+    },
+    {
+      "_id": "8d2sxr7j0k1kgp1s7",
+      "email": "test@MIFTIT.COM",
+      "fid": "123",
+      "was_viewed": false,
+      "reminders_sent": 0,
+      "created_at": "2019-10-10T08:50:30.342Z",
+      "updated_at": null
     }
   ]
 }
