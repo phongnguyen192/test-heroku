@@ -1,36 +1,32 @@
 {
-  "name": "nodeapi",
+  "name": "reminderemail",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon --exec babel-node app.js",
+    "build": "babel app.js --out-file app-compiled.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "phong@niftit.com",
   "license": "ISC",
-  "dependencies": {
-    "app-root-path": "^2.2.1",
-    "axios": "^0.18.1",
-    "body-parser": "^1.19.0",
-    "clf-date": "^0.1.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.11",
-    "moment": "^2.24.0",
-    "morgan": "^1.9.1",
-    "mssql": "^5.1.0",
-    "node-cache": "^4.2.0",
-    "promise": "^8.0.3",
-    "rest-api-errors": "^1.2.1",
-    "sequelize": "^5.8.7",
-    "tedious": "^6.1.2",
-    "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^3.9.0",
-	"nodemon": "^1.19.0"
-  },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "@babel/cli": "^7.6.3",
+    "@babel/core": "^7.6.3",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "nodemon": "^1.19.3"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "lowdb": "^1.0.0",
+    "uniqid": "^5.0.3",
+    "nodemon": "^1.19.3"
   }
 }

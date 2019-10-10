@@ -1,0 +1,31 @@
+{
+  "logs": [
+    {
+      "_id": "8d2sxr530k1k6i0h9",
+      "email": "test@MIFTIT.COM",
+      "fid": 0,
+      "was_viewed": false,
+      "reminders_sent": 0,
+      "created_at": "2019-10-10T04:05:05.900Z",
+      "updated_at": null
+    },
+    {
+      "_id": "8d2sxr5uok1kc9ylh",
+      "email": "test@MIFTIT.COM",
+      "fid": 0,
+      "was_viewed": false,
+      "reminders_sent": 0,
+      "created_at": "2019-10-10T06:46:47.908Z",
+      "updated_at": null
+    },
+    {
+      "_id": "8d2sxr4o8k1kde59l",
+      "email": "test@MIFTIT.COM",
+      "fid": "123",
+      "was_viewed": false,
+      "reminders_sent": 0,
+      "created_at": "2019-10-10T07:18:02.792Z",
+      "updated_at": null
+    }
+  ]
+}
