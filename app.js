@@ -58,7 +58,7 @@ app.use(function (err, req, res, next) {
 });
 
 // Start
-var PORT = process.env.API_PORT || 3010;
+var PORT = process.env.PORT || 8080;
 //CREATE A SERVER
 var server = _http2.default.createServer(app);
 server.listen(PORT);
